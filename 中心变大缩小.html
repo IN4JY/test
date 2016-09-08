@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#wrap{
+				overflow: hidden;
+				position: relative;
+				top: 10px;
+				left: 10px;
+				width: 100px;
+				height: 100px;
+			}
+
+			#wrap img{
+				height: 100px;
+				position: absolute;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img id="tt" src="images/test.png">
+		</div>
+
+		<script type="text/javascript">
+			
+			var elem = document.getElementById('tt');
+			
+			function resize()
+			{
+				var now_h = parseInt(elem.height);
+				var now_l = parseInt(elem.offsetLeft);
+				var now_t = parseInt(elem.offsetTop);
+				if(now_h<110)
+				{
+					now_h++;
+				}
+				elem.style.height=now_h+'px';
+				if(now_l>-10)
+				{
+					now_l=now_l-1;
+				}
+				elem.style.left=now_l+'px';
+				if(now_t>-10)
+				{
+					now_t=now_t-1;
+				}
+				elem.style.top=now_t+'px';
+			}
+			function resize2()
+			{
+				var now_h = parseInt(elem.height);
+				var now_l = parseInt(elem.offsetLeft);
+				var now_t = parseInt(elem.offsetTop);
+				if(now_h>100)
+				{
+					now_h--;
+				}
+				elem.style.height=now_h+'px';
+				if(now_l<0)
+				{
+					now_l=now_l+1;
+				}
+				elem.style.left=now_l+'px';
+				if(now_t<0)
+				{
+					now_t=now_t+1;
+				}
+				elem.style.top=now_t+'px';
+			}
+
+						
+			elem.onmouseover=function()
+			{	
+				tb = setInterval(resize,10);		
+				clearInterval(tm);
+											
+			}
+			elem.onmouseout=function()
+			{
+				tm = setInterval(resize2,10);
+				clearInterval(tb);	
+						
+			}				
+			
+		</script>
+	<body>
+</html>
